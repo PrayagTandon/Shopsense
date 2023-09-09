@@ -43,18 +43,10 @@ def delete_product(connection, product_id):
 
 if __name__ == "__main__":
     connection = get_sql_connection()
-    print(
-        delete_product(connection, 12),
-    )
-    print(
-        delete_product(connection, 15),
-    )
-    print(
-        delete_product(connection, 16),
-    )
-    print(
-        delete_product(connection, 17),
-    )
-    print(
-        delete_product(connection, 18),
-    )
+    # print(delete_product(connection, 13))
+    # print(
+    #     insert_new_product(
+    #         connection,
+    #         {"product_name": "potatoes", "uom_id": "1", "price_per_unit": "20"},
+    #     )
+    # )
