@@ -1,12 +1,8 @@
-import mysql.connector
+from sql_connection import get_sql_connection
 
 
-def get_all_products():
-    cnx = mysql.connector.connect(
-        user="root", password="Pray@#2010", host="127.0.0.1", database="shopsense"
-    )
-
-    cursor = cnx.cursor()
+def get_all_products(connection):
+    cursor = connection.cursor()
 
     query = "SELECT products.product_id, products.name, products.uom_id, products.price_per_unit, uom_table.uom_name FROM shopsense.products inner join shopsense.uom_table on products.uom_id=uom_table.uom_id"
 
@@ -24,7 +20,9 @@ def get_all_products():
                 "uom_name": uom_name,
             }
         )
-
-    cnx.close()
-
     return response
+
+
+if __name__ == "__main__":
+    connection = get_sql_connection()
+    print(get_all_products(connection))
